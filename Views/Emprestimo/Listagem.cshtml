@@ -8,7 +8,7 @@
     <form class="form-inline" method="POST">
         <div class="form-group mb-2">
             <select name="TipoFiltro" class="form-control">
-                <option value="Usuario">Usuário</option>
+                <option value="NomeUsuario">Usuário</option>
                 <option value="Livro">Livro</option>
             </select>
         </div>
@@ -23,7 +23,10 @@
 <div class="row">
     <div class="col-md-12">
         <table > 
-            <thead>
+
+            @if (Model.Count>0)
+            {
+                <thead>
                 <tr><th>Id</th>
                 <th>Usuario</th>
                 <th>Data Empréstimo</th>
@@ -33,6 +36,7 @@
                 <th></th>
                 </tr>
             </thead>
+
             <tbody>
                 @foreach(Emprestimo e in Model)
                 {
@@ -47,6 +51,10 @@
                 </tr>
                 }
             </tbody>
+            }else{
+                <p>Registro não encontrado</p>
+            }
+        
         </table>
     </div>
 </div>
